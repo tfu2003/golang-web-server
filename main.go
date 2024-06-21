@@ -18,6 +18,7 @@ type apiConfig struct {
 	DB *database.Queries
 }
 
+// Run go build && ./golang-web-server 
 func main() {
 	godotenv.Load()
 
