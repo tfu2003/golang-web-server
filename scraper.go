@@ -62,7 +62,7 @@ func scrapeFeed(db *database.Queries, wg *sync.WaitGroup, feed database.Feed) {
 
 		pubAt, err := time.Parse(time.RFC1123Z, item.PubDate) 
 		if (err != nil) {
-			log.Println("Could not parse date %v with err %v", item.PubDate, err)
+			log.Printf("Could not parse date %v with err %v", item.PubDate, err)
 			continue
 		}
 		
