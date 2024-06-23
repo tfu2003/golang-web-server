@@ -6,12 +6,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
-	"github.com/tfu2003/golang-web-server/internal/database"
 	_ "github.com/lib/pq"
+	"github.com/tfu2003/golang-web-server/internal/database"
 )
 
 type apiConfig struct {
@@ -37,11 +38,13 @@ func main() {
 		log.Fatal("Cannot connect to database", err)
 	}
 
-	queries := database.New(conn);
+	db := database.New(conn);
 
 	apiCfg := apiConfig{
-		DB: queries, 
+		DB: db, 
 	}
+
+	go startScraping(db, 10, time.Minute)
 
 	router := chi.NewRouter()
 
