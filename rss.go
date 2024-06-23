@@ -11,7 +11,7 @@ type RSSFeed struct {
 	Channel struct {
 		Title		string		`xml:"title"`
 		Link		string		`xml:"link"`
-		Descrption	string		`xml:"descrption"`
+		Description	string		`xml:"descrption"`
 		Language	string		`xml:"language"`
 		Item		[]RSSItem	`xml:"item"`	
 	} `xml:"channel"`
@@ -20,7 +20,7 @@ type RSSFeed struct {
 type RSSItem struct {
 	Title		string	`xml:"title"`
 	Link		string	`xml:"link"`
-	Descrption	string	`xml:"descrption"`
+	Description	string	`xml:"descrption"`
 	PubDate		string	`xml:"pubDate"`
 }
 
